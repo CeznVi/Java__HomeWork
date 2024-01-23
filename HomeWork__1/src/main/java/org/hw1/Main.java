@@ -1,9 +1,7 @@
 package org.hw1;
+import exeptions.NumberOutOfRangeException;
 import exeptions.SixDigitNumberException;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -93,9 +91,42 @@ public class Main {
 
     //// --------- TASK 4 SOLUTION ---------
     public static void task5(){
-        System.out.println("task5\n");
+        System.out.println("Введите число от 1 до 12\n");
 
+        try {
+            int num = scanner.nextInt();
 
+            if(num < 1 || num > 12) {
+                throw new NumberOutOfRangeException("Введенное число должно быть в диапазоне от 1 до 12");
+            }
+
+            switch (num) {
+                case 1:
+                case 2:
+                case 12:
+                    System.out.println("Winter");
+                    break;
+                case 3:
+                case 4:
+                case 5:
+                    System.out.println("Spring");
+                    break;
+                case 6:
+                case 7:
+                case 8:
+                    System.out.println("Summer");
+                    break;
+                case 9:
+                case 10:
+                case 11:
+                    System.out.println("Autumn");
+                    break;
+            }
+        } catch (InputMismatchException inputMismatchException) {
+            System.out.println("Введенное значение не число");
+        } catch (NumberOutOfRangeException numberOutOfRangeException) {
+            System.out.println(numberOutOfRangeException.getMessage());
+        }
     }
 
 }
