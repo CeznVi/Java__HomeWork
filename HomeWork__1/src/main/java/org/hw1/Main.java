@@ -18,7 +18,9 @@ public class Main {
 
         //task3();
 
-        task4();
+        //task4();
+
+        task5();
     }
 
 
@@ -87,8 +89,13 @@ public class Main {
             System.out.println("Введенное значение не число");
         }
 
-
     }
 
+    //// --------- TASK 4 SOLUTION ---------
+    public static void task5(){
+        System.out.println("task5\n");
+
+
+    }
 
 }
