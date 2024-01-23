@@ -1,4 +1,7 @@
 package org.hw1;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -7,7 +10,9 @@ public class Main {
 
         //task1();
 
-        task2();
+        //task2();
+
+        task3();
     }
 
 
@@ -34,6 +39,24 @@ public class Main {
         {
             System.out.println("Введеные данные не являются числами");
             task2();
+        }
+
+
+    }
+
+    //// --------- TASK 3 SOLUTION ---------
+    public static void task3(){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Введите три числа и получите результат \n");
+        try {
+            int fNum = scanner.nextInt();
+            int tNum = scanner.nextInt();
+            int thrNum = scanner.nextInt();
+            System.out.printf("%s%s%s", fNum, tNum, thrNum);
+        }
+        catch (InputMismatchException ex) {
+            System.out.println("Введеные данные - не целое число\n");
         }
 
 
