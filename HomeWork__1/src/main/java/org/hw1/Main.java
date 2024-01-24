@@ -33,7 +33,9 @@ public class Main {
 
         //task10();
 
-        task11();
+        //task11();
+
+        task12();
     }
 
 
@@ -333,4 +335,70 @@ public class Main {
         drawLine(5, false,'=');
     }
 
+
+    ///Метод сортировки масива
+    public static void bubbleSortDesc(int[] num) {
+        int j;
+        boolean flag = true;
+        int temp;
+
+        while (flag) {
+            flag = false;
+            for (j = 0; j < num.length - 1; j++) {
+                if (num[j] < num[j + 1]) {
+                    temp = num[j];
+                    num[j] = num[j + 1];
+                    num[j + 1] = temp;
+                    flag = true;
+                }
+            }
+        }
+    }
+    public static void bubbleSortAsc(int[] num) {
+        int j;
+        boolean flag = true;
+        int temp;
+
+        while (flag) {
+            flag = false;
+            for (j = 0; j < num.length - 1; j++) {
+                if (num[j] > num[j + 1]) {
+                    temp = num[j];
+                    num[j] = num[j + 1];
+                    num[j + 1] = temp;
+                    flag = true;
+                }
+            }
+        }
+    }
+
+    //// --------- TASK 12 SOLUTION ---------
+    public static void task12() {
+        int[] arr = generateRandomArrayFixLength(30, -10, 10);
+        System.out.println("Сгенерированный массив случайных чисел");
+        showArrayInConsole(arr);
+        System.out.println("1 - СОРТИРОВКА DESC\n2 - СОРТИРОВКА ASC\n");
+        try {
+            switch (scanner.nextInt()) {
+                case 1: {
+                    bubbleSortDesc(arr);
+                    System.out.println("После сортировки DESC");
+                    showArrayInConsole(arr);
+                    break;
+                }
+                case 2: {
+                    bubbleSortAsc(arr);
+                    System.out.println("После сортировки ASC");
+                    showArrayInConsole(arr);
+                    break;
+                }
+                default: {
+                    System.out.println("Неверный выбор");
+                    break;
+                }
+            }
+        } catch (InputMismatchException inputMismatchException) {
+            System.out.println("Введенное значение не число");
+        }
+    }
 }
