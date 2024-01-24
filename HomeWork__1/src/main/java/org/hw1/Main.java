@@ -31,7 +31,9 @@ public class Main {
 
         //task9();
 
-        task10();
+        //task10();
+
+        task11();
     }
 
 
@@ -313,6 +315,22 @@ public class Main {
         System.out.println(negativeIntArr);
         System.out.println("Массив из положительных чисел");
         System.out.println(positiveIntArr);
+    }
+
+    /// Нарисовать линию
+    public static void drawLine(int lenght, boolean isVertical, char symbol){
+        for (int i=0;i<lenght;i++){
+            System.out.print(symbol);
+            if(isVertical){
+                System.out.println();
+            }
+        }
+    }
+
+    //// --------- TASK 11 SOLUTION ---------
+    public static void task11(){
+        drawLine(2, true,'+');
+        drawLine(5, false,'=');
     }
 
 }
