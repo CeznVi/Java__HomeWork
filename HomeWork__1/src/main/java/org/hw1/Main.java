@@ -2,7 +2,9 @@ package org.hw1;
 import exeptions.NumberOutOfRangeException;
 import exeptions.SixDigitNumberException;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -24,7 +26,9 @@ public class Main {
 
         //task7();
 
-        task8();
+        //task8();
+
+        task9();
     }
 
 
@@ -220,6 +224,58 @@ public class Main {
         } catch (InputMismatchException inputMismatchException) {
             System.out.println("Введенное значение не число");
         }
+    }
+
+
+    //// Генерация масива заданного размера случайными числами в указанном диапазоне
+    public static int[] generateRandomArrayFixLength(int length, int min, int max) {
+        Random random = new Random();
+        int[] arr = new int[length];
+
+        for(int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt((max - min) + 1) + min;
+        }
+        return arr;
+    }
+
+    //// Генерация масива заданного размера случайными числами в указанном диапазоне
+    public static void showArrayInConsole(int[] arr){
+        for (int item : arr) {
+            System.out.printf("%d  ", item);
+        }
+        System.out.println();
+    }
+
+    //// --------- TASK 9 SOLUTION ---------
+    public static void task9(){
+        int[] arr = generateRandomArrayFixLength(10, -10,10);
+
+        int positiveInt = 0;
+        int negativeInt = 0;
+        int zeroInt = 0;
+
+        System.out.println("Сгенерированный массив случайных чисел");
+        showArrayInConsole(arr);
+
+        //Сортировка масива для поиска мин и макс значения єлементов
+        Arrays.sort(arr);
+
+        for (int item : arr) {
+            if(item < 0) {
+                negativeInt++;
+            } else if(item == 0) {
+                zeroInt++;
+            } else {
+                positiveInt++;
+            }
+        }
+        System.out.println();
+        System.out.println("Минимальный элемент = " + arr[0]);
+        System.out.println("Максимальный элемент = " + arr[arr.length-1]);
+        System.out.println("Количество отрицательных элементов в массиве = " + negativeInt);
+        System.out.println("Количество нулевых элементов в массиве = " + zeroInt);
+        System.out.println("Количество положительных элементов в массиве = " + positiveInt);
+
     }
 
 
