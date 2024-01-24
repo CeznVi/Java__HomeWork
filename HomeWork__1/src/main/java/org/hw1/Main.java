@@ -22,7 +22,9 @@ public class Main {
 
         //task6();
 
-        task7();
+        //task7();
+
+        task8();
     }
 
 
@@ -195,5 +197,30 @@ public class Main {
             System.out.println("Введенное значение не число");
         }
     }
+
+    //// --------- TASK 8 SOLUTION ---------
+    public static void task8(){
+        try{
+            System.out.println("Введите два два числа для определения диапазона начала и конца таблицы умножения");
+            int num1 = scanner.nextInt();
+            int num2 = scanner.nextInt();
+
+            if(num2 < num1) {
+                int temp = num2;
+                num2 = num1;
+                num1 = temp;
+            }
+
+            for(int i = num1; i <= num2; i++) {
+                for (int j = 1; j <= 10; j++) {
+                    System.out.printf("%s * %s = %s, ", i, j, i*j);
+                }
+                System.out.println();
+            }
+        } catch (InputMismatchException inputMismatchException) {
+            System.out.println("Введенное значение не число");
+        }
+    }
+
 
 }
