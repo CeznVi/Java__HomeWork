@@ -18,7 +18,9 @@ public class Main {
 
         //task4();
 
-        task5();
+        //task5();
+
+        task6();
     }
 
 
@@ -89,7 +91,7 @@ public class Main {
 
     }
 
-    //// --------- TASK 4 SOLUTION ---------
+    //// --------- TASK 5 SOLUTION ---------
     public static void task5(){
         System.out.println("Введите число от 1 до 12\n");
 
@@ -128,5 +130,39 @@ public class Main {
             System.out.println(numberOutOfRangeException.getMessage());
         }
     }
+
+    //// --------- TASK 6 SOLUTION ---------
+    public static void task6(){
+        System.out.println("Введите количество метров которые необходимо перевести в другую еденицу измерения\n");
+
+        try {
+            double lenght = scanner.nextDouble();
+            System.out.println("Чтобы перевести " + lenght + "метры\n" +
+                    "\tНажмите 1 - метры в мили  \n" +
+                    "\tНажмите 2 - метры в дюймы  \n" +
+                    "\tНажмите 3 - метры в ярды  \n");
+
+            switch (scanner.nextInt()) {
+                case 1: {
+                    System.out.println(lenght / 1609);
+                    break;
+                }
+                case 2: {
+                    System.out.println(lenght * 39.37);
+                    break;
+                }
+                case 3: {
+                    System.out.println(lenght * 1.094);
+                    break;
+                }
+                default:
+                    System.out.println("Вы ввели не верное значение");
+                    break;
+            }
+        } catch (InputMismatchException inputMismatchException) {
+            System.out.println("Введенное значение не число");
+        }
+    }
+
 
 }
