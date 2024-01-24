@@ -20,7 +20,9 @@ public class Main {
 
         //task5();
 
-        task6();
+        //task6();
+
+        task7();
     }
 
 
@@ -32,7 +34,7 @@ public class Main {
 
     //// --------- TASK 2 SOLUTION ---------
     public static void task2(){
-        System.out.println("Введите два числа, \n" +
+        System.out.println("Введите два числа,\n" +
                 "где - 1е число это значение\n" +
                 "2е число это процент от первого числа\n");
         try
@@ -164,5 +166,34 @@ public class Main {
         }
     }
 
+    //// --------- TASK 7 SOLUTION ---------
+    public static void task7(){
+        try{
+            System.out.println("Введите два два числа для определения диапазона поиска нечетных чисел");
+            int num1 = scanner.nextInt();
+            int num2 = scanner.nextInt();
+
+            if(num1 == num2) {
+                System.out.println("Введенные числа равны, ничего не выйдет.");
+                return;
+            }
+
+            if(num1 < num2) {
+                for(int i = num1; i < num2; i++) {
+                    if(i % 2 != 0){
+                        System.out.print(i + ", ");
+                    }
+                }
+            } else  {
+                for(int i = num2; i < num1; i++) {
+                    if(i % 2 != 0){
+                        System.out.print(i + ", ");
+                    }
+                }
+            }
+        } catch (InputMismatchException inputMismatchException) {
+            System.out.println("Введенное значение не число");
+        }
+    }
 
 }
