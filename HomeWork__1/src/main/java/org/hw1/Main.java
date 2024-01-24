@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
     public static Scanner scanner = new Scanner(System.in);
@@ -28,7 +29,9 @@ public class Main {
 
         //task8();
 
-        task9();
+        //task9();
+
+        task10();
     }
 
 
@@ -278,5 +281,38 @@ public class Main {
 
     }
 
+    //// --------- TASK 10 SOLUTION ---------
+    public static void task10(){
+        int[] arr = generateRandomArrayFixLength(30, -10,10);
+        ArrayList<Integer> positiveIntArr = new ArrayList<Integer>();
+        ArrayList<Integer> negativeIntArr = new ArrayList<Integer>();
+        ArrayList<Integer> evenIntArr = new ArrayList<Integer>();
+        ArrayList<Integer> oddIntArr = new ArrayList<Integer>();
+
+        System.out.println("Сгенерированный массив случайных чисел");
+        showArrayInConsole(arr);
+
+        for (int item : arr) {
+            if(item % 2 != 0) {
+                oddIntArr.add(item);
+            } else {
+                evenIntArr.add(item);
+            }
+
+            if(item < 0) {
+                negativeIntArr.add(item);
+            } else {
+                positiveIntArr.add(item);
+            }
+        }
+        System.out.println("Массив из четных чисел");
+        System.out.println(evenIntArr);
+        System.out.println("Массив из нечетных чисел");
+        System.out.println(oddIntArr);
+        System.out.println("Массив из отрицательных чисел");
+        System.out.println(negativeIntArr);
+        System.out.println("Массив из положительных чисел");
+        System.out.println(positiveIntArr);
+    }
 
 }
