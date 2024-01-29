@@ -1,4 +1,7 @@
-# Java__HomeWork-1
+# Java__HomeWork
+
+<details>
+<summary>Список заданий к домайшей работе №1</summary>
 
 ## Задание 1 
 > Выведите на экран надпись "Your time is limited, so don’t waste it living someone else’s life" Steve Jobs 
@@ -66,6 +69,21 @@
 
 ## Задание 12
 > Напишите метод, сортирующий массив по убыванию или возрастанию в зависимости от выбора пользователя.
+</details>
+
+<details>
+<summary>Список заданий к домайшей работе №2 (Тема: Java Collections Framework)</summary>
+
+    
+</details>
+
+<details>
+<summary>Список заданий к домайшей работе №3 (Тема: Лямбда-выражения)</summary>
+
+    
+</details>
+
+
 
 
 
