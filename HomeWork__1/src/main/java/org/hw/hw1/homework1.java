@@ -1,4 +1,9 @@
-package org.hw1;
+package org.hw.hw1;
+
+import exeptions.NumberOutOfRangeException;
+import exeptions.SixDigitNumberException;
+
+import java.util.*;
 import exeptions.NumberOutOfRangeException;
 import exeptions.SixDigitNumberException;
 
@@ -8,11 +13,11 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class Main {
+public class homework1 implements Runnable{
     public static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
-
+    @Override
+    public void run() {
         //task1();
 
         //task2();
@@ -334,7 +339,6 @@ public class Main {
         drawLine(2, true,'+');
         drawLine(5, false,'=');
     }
-
 
     ///Метод сортировки масива
     public static void bubbleSortDesc(int[] num) {
