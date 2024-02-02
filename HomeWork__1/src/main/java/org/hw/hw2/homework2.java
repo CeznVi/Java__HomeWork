@@ -5,9 +5,12 @@ public class homework2 implements Runnable{
     public void run() {
 
         ////TASK 1
-        SimulatorSeaBoatStation simulationSeaBoatStation = new SimulatorSeaBoatStation();
-        simulationSeaBoatStation.runSimulation();
+        //SimulatorSeaBoatStation simulationSeaBoatStation = new SimulatorSeaBoatStation();
+        //simulationSeaBoatStation.runSimulation();
 
+        ////TASK 2
+        Vocabulary vocabulary = new Vocabulary();
+        vocabulary.runProgram();
 
 
 

@@ -13,7 +13,6 @@ public class Main {
 
         ///HOME WORK 2 -- start
         Runnable homeWork = new homework2();
-
         homeWork.run();
     }
 
