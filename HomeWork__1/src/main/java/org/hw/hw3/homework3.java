@@ -7,6 +7,9 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.function.BinaryOperator;
+
+
 
 public class homework3 implements Runnable{
 
@@ -16,7 +19,10 @@ public class homework3 implements Runnable{
         //task1();
 
         ////-----------------------TASK__2
-        task2();
+        ///task2();
+
+        ////-----------------------TASK__2
+        task3();
     }
 
     ///-----------------------TASK__1
@@ -96,5 +102,36 @@ public class homework3 implements Runnable{
         result = divideFractions.with(fraction1, fraction2);
         System.out.println(fraction1 + " / " +fraction2 + " = " + result);
     }
+
+    ///-----------------------TASK__3
+    public void task3(){
+        BinaryOperator<Integer> maxOfFour = (a, b) -> Math.max(Math.max(a, b), Math.max(a, b));
+        BinaryOperator<Integer> minOfFour = (a, b) -> Math.min(Math.min(a, b), Math.min(a, b));
+
+        Integer maxInteger = maxOfFour.apply(10, Math.max(5, Math.max(8, 12)));
+        System.out.println("Максимальное целое число: " + maxInteger);
+
+        Integer minInteger = minOfFour.apply(10, Math.min(5, Math.min(8, 12)));
+        System.out.println("Минимальное целое число: " + minInteger);
+
+        BinaryOperator<Double> maxDouble = (a, b) -> Math.max(Math.max(a, b), Math.max(a, b));
+        BinaryOperator<Double> minDouble = (a, b) -> Math.min(Math.min(a, b), Math.min(a, b));
+
+        Double maxDoubleValue = maxDouble.apply(3.5, Math.max(8.9, Math.max(1.2, 5.7)));
+        System.out.println("Максимальное double число: " + maxDoubleValue);
+
+        Double minDoubleValue = minDouble.apply(3.5, Math.min(8.9, Math.min(1.2, 5.7)));
+        System.out.println("Минимальное double число: " + minDoubleValue);
+
+        BinaryOperator<String> maxString = (a, b) -> (a.compareTo(b) > 0) ? a : b;
+        BinaryOperator<String> minString = (a, b) -> (a.compareTo(b) < 0) ? a : b;
+
+        String maxStringValue = maxString.apply("яблоко", maxString.apply("груша", maxString.apply("цибуля", "можжевельник")));
+        System.out.println("Макс строка: " + maxStringValue);
+
+        String minStringValue = minString.apply("яблоко", minString.apply("груша", minString.apply("цибуля", "можжевельник")));
+        System.out.println("Минимальная строка: " + minStringValue);
+    }
+
 
 }
