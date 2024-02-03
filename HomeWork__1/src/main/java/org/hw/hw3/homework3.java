@@ -1,9 +1,7 @@
 package org.hw.hw3;
 
-import org.hw.hw3.interfaces.DayOfWeekCalculator;
-import org.hw.hw3.interfaces.DaysBetweenCalculator;
-import org.hw.hw3.interfaces.LeapYearChecker;
-import org.hw.hw3.interfaces.WeeksBetweenCalculator;
+import org.hw.hw3.entity.Fraction;
+import org.hw.hw3.interfaces.*;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -15,10 +13,13 @@ public class homework3 implements Runnable{
     @Override
     public void run() {
         ///-----------------------TASK__1
-        task1();
+        //task1();
 
+        ////-----------------------TASK__2
+        task2();
     }
 
+    ///-----------------------TASK__1
     public void task1(){
         ///Проверка является ли год високосным
         System.out.println("__________________________________________________");
@@ -51,6 +52,49 @@ public class homework3 implements Runnable{
         String dayOfWeek = dayOfWeekCalculator.calculateDayOfWeek(givenDate);
 
         System.out.println(givenDate.format(DateTimeFormatter.ofPattern("d MMMM yyyy")) + " was a " + dayOfWeek);
+    }
+
+    ///-----------------------TASK__2
+    public void task2(){
+        Fraction fraction1 = new Fraction(1, 2);
+        Fraction fraction2 = new Fraction(1, 3);
+        Fraction result;
+
+        ///Сумма двух дробей;
+        ActionWithFractions addFractions = (f1, f2) -> {
+            int resultNumerator = f1.numerator * f2.denominator + f2.numerator * f1.denominator;
+            int resultDenominator = f1.denominator * f2.denominator;
+            return new Fraction(resultNumerator, resultDenominator);
+        };
+        result = addFractions.with(fraction1, fraction2);
+        System.out.println(fraction1 + " + " +fraction2 + " = " + result);
+
+        ////Разница двух дробей;
+        ActionWithFractions subFractions = (f1, f2) -> {
+            int resultNumerator = f1.numerator * f2.denominator - f2.numerator * f1.denominator;
+            int resultDenominator = f1.denominator * f2.denominator;
+            return new Fraction(resultNumerator, resultDenominator);
+        };
+        result = subFractions.with(fraction1, fraction2);
+        System.out.println(fraction1 + " - " +fraction2 + " = " + result);
+
+        ////Произведение двух дробей;
+        ActionWithFractions multiplyingFractions = (f1, f2) -> {
+            int resultNumerator = f1.numerator * f2.numerator;
+            int resultDenominator = f1.denominator * f2.denominator;
+            return new Fraction(resultNumerator, resultDenominator);
+        };
+        result = multiplyingFractions.with(fraction1, fraction2);
+        System.out.println(fraction1 + " * " +fraction2 + " = " + result);
+
+        ////Деление двух дробей
+        ActionWithFractions divideFractions = (f1, f2) -> {
+            int resultNumerator = f1.numerator * f2.denominator;
+            int resultDenominator = f1.denominator * f2.numerator;
+            return new Fraction(resultNumerator, resultDenominator);
+        };
+        result = divideFractions.with(fraction1, fraction2);
+        System.out.println(fraction1 + " / " +fraction2 + " = " + result);
     }
 
 }
