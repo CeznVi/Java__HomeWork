@@ -4,7 +4,6 @@ import org.hw.hw3.entity.Fraction;
 import org.hw.hw3.interfaces.*;
 
 import java.time.LocalDate;
-import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.function.BinaryOperator;
@@ -21,8 +20,12 @@ public class homework3 implements Runnable{
         ////-----------------------TASK__2
         ///task2();
 
-        ////-----------------------TASK__2
-        task3();
+        ////-----------------------TASK__3
+        //task3();
+
+        ////-----------------------TASK__4
+        task4();
+
     }
 
     ///-----------------------TASK__1
@@ -133,5 +136,36 @@ public class homework3 implements Runnable{
         System.out.println("Минимальная строка: " + minStringValue);
     }
 
+    ///-----------------------TASK__4
+    public void task4() {
+        int[] array = {234, 2, -3, 32, -5, 423, 7, 8, 9, 811};
 
+        int target = 811;
+        int sum1 = conditionOf(array, n -> n != target);
+        System.out.println("Проверка на равенство конкретному числу = "+ sum1);
+
+
+        int a = -3;
+        int b = 234;
+        int sum2 = conditionOf(array, n -> n < a || n > b);
+        System.out.println("Число не находится в диапазоне от A до B = "+ sum2);
+
+
+        int sum3 = conditionOf(array, n -> n > 0);
+        System.out.println("Проверка на положительность числа = " + sum3);
+
+        int sum4 = conditionOf(array, n -> n < 0);
+        System.out.println("Проверка на отрицательность числа = " + sum4);
+
+    }
+
+    public static int conditionOf(int[] array, ArrayCondition condition) {
+        int sum = 0;
+        for (int num : array) {
+            if (condition.condition(num)) {
+                sum += num;
+            }
+        }
+        return sum;
+    }
 }
