@@ -1,5 +1,7 @@
 package org.hw.hw2;
 
+
+
 public class homework2 implements Runnable{
     @Override
     public void run() {
@@ -9,10 +11,12 @@ public class homework2 implements Runnable{
         //simulationSeaBoatStation.runSimulation();
 
         ////TASK 2
-        Vocabulary vocabulary = new Vocabulary();
-        vocabulary.runProgram();
+        //Vocabulary vocabulary = new Vocabulary();
+        //vocabulary.runProgram();
 
-
+        ////TASK 3
+        TaxOfficeDataBase taxOfficeDataBase = new TaxOfficeDataBase();
+        taxOfficeDataBase.runProgram();
 
     }
 
