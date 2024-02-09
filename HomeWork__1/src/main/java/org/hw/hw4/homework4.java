@@ -24,10 +24,10 @@ public class homework4 implements Runnable{
         //task2();
 
         ////-----------------------TASK__3
-        task3();
+        //task3();
 
         ////-----------------------TASK__4
-        ///task4();
+        task4();
     }
 
     ///-----------------------TASK__1--------------------------------
@@ -137,4 +137,37 @@ public class homework4 implements Runnable{
         dc.makeCopy(inputFilePath, outputFilePath);
     }
 
+    ///-----------------------TASK__4--------------------------------
+    private void task4(){
+        Scanner scanner = new Scanner(System.in);
+
+        // Ввод пути к директории и слова для поиска
+        System.out.print("Введите путь к директории: ");
+        String directoryPath = scanner.nextLine();
+        if(directoryPath.length() <2) directoryPath = "C:\\test";
+
+        System.out.print("Введите слово для поиска: ");
+        String searchWord = scanner.nextLine();
+        if(searchWord.length() <1 ) searchWord = "lorem";
+
+        // Создание и запуск первого потока
+        SearchThread searchThread = new SearchThread(directoryPath, searchWord);
+        searchThread.start();
+
+        // Создание и запуск второго потока
+        ProcessThread processThread = new ProcessThread(searchThread);
+        processThread.start();
+
+        try {
+            // Ожидание завершения работы первого потока
+            searchThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Отображение статистики выполненных операций
+        System.out.println("Статистика:");
+        System.out.println("Найдено файлов с искомым словом: " + searchThread.getFoundFilesCount());
+        System.out.println("Вырезано запрещенных слов: " + processThread.getForbiddenWordsCount());
+    }
 }
