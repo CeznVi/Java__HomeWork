@@ -1,6 +1,7 @@
 package org.hw.hw4;
 
 import org.hw.hw4.jobs.*;
+import org.hw.hw4.utility.DirectoryCopy;
 
 import java.io.*;
 import java.lang.reflect.Array;
@@ -20,10 +21,10 @@ public class homework4 implements Runnable{
         //task1();
 
         ////-----------------------TASK__2
-        task2();
+        //task2();
 
         ////-----------------------TASK__3
-        //task3();
+        task3();
 
         ////-----------------------TASK__4
         ///task4();
@@ -119,5 +120,21 @@ public class homework4 implements Runnable{
         System.out.println("Результат записан в файл по адресу " + factorialOutputFilePath);
     }
 
+    ///-----------------------TASK__3--------------------------------
+    private void task3(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите путь к папке: (Enter- путь по умолчанию C:\\test\\Original  )  ");
+        String original = "C:\\test\\Original";
+        String copyTo = "C:\\test\\22";
+
+        String inputFilePath = scanner.nextLine();
+        if(inputFilePath.length() < 2 ) inputFilePath = original;
+
+        System.out.print("Введите путь назначения: (Enter- путь по умолчанию C:\\test\\22  )  ");
+        String outputFilePath = scanner.nextLine();
+        if(outputFilePath.length() < 2 ) outputFilePath = copyTo;
+        DirectoryCopy dc = new DirectoryCopy();
+        dc.makeCopy(inputFilePath, outputFilePath);
+    }
 
 }
