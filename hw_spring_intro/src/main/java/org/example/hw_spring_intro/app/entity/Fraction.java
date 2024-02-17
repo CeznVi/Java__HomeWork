@@ -48,7 +48,6 @@ public class Fraction {
         numerator /= gcd;
         denominator /= gcd;
     }
-
     /**
      * Найти общий делитель дроби рекурсивно.
      * @param a - числитель
@@ -58,4 +57,21 @@ public class Fraction {
     private int findGCD(int a, int b) {
         return b == 0 ? a : findGCD(b, a % b);
     }
+
+
+    /**
+     * Сложение дробей
+     * @param otherFraction - другая дробь
+     * @return Fraction - результат сложения
+     */
+    public Fraction add(Fraction otherFraction) {
+        int commonDenominator = this.denominator * otherFraction.denominator;
+        int sumNumerator = (this.numerator * otherFraction.denominator) + (otherFraction.numerator * this.denominator);
+        Fraction result = new Fraction(sumNumerator, commonDenominator);
+        result.simplify();
+
+        return result;
+    }
+
+
 }

@@ -41,4 +41,23 @@ public class FractionController {
     }
 
 
+    /**
+     * Сложение двух дробей
+     * @param num1 числитель 1й дроби
+     * @param denom1 знаменатель 1й дроби
+     * @param num2  числитель 2й дроби
+     * @param denom2 знаменатель 2й дроби
+     * @return Freaction - результат сложения двух дробей
+     */
+    @GetMapping("/add")
+    public Fraction addFractions(@RequestParam int num1, @RequestParam int denom1,
+                                 @RequestParam int num2, @RequestParam int denom2){
+        Fraction fr1 = new Fraction(num1, denom1);
+        Fraction fr2 = new Fraction(num2, denom2);
+
+        return fr1.add(fr2);
+    }
+
+
+
 }
