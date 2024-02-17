@@ -97,5 +97,18 @@ public class Fraction {
         return result;
     }
 
+    /**
+     * Деление дробей
+     * @param otherFraction - другая дробь
+     * @return Fraction - деления умножения
+     */
+    public Fraction divide(Fraction otherFraction) {
+        int resultNumerator = this.numerator * otherFraction.denominator;
+        int resultDenominator = this.denominator * otherFraction.numerator;
+        Fraction result = new Fraction(resultNumerator, resultDenominator);
+        result.simplify();
+        return result;
+    }
+
 
 }
