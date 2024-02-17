@@ -85,5 +85,17 @@ public class Fraction {
         return result;
     }
 
+    /** Умножение дробей
+     * @param otherFraction - другая дробь
+     * @return Fraction - результат умножения
+     */
+    public Fraction multiply(Fraction otherFraction) {
+        int resultNumerator = this.numerator * otherFraction.numerator;
+        int resultDenominator = this.denominator * otherFraction.denominator;
+        Fraction result = new Fraction(resultNumerator, resultDenominator);
+        result.simplify();
+        return result;
+    }
+
 
 }
