@@ -2,11 +2,8 @@ package org.example.hw_spring_intro.app.controllers;
 
 import org.example.hw_spring_intro.app.entity.Fraction;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.lang.annotation.Documented;
 
 @RestController
 public class FractionController {
@@ -58,6 +55,14 @@ public class FractionController {
         return fr1.add(fr2);
     }
 
+
+    @GetMapping("/subtract")
+    public Fraction subtractFractions(@RequestParam int num1, @RequestParam int denom1,
+                                      @RequestParam int num2, @RequestParam int denom2){
+        Fraction fr1 = new Fraction(num1, denom1);
+        Fraction fr2 = new Fraction(num2, denom2);
+        return fr1.subtract(fr2);
+    }
 
 
 }

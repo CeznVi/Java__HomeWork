@@ -69,7 +69,19 @@ public class Fraction {
         int sumNumerator = (this.numerator * otherFraction.denominator) + (otherFraction.numerator * this.denominator);
         Fraction result = new Fraction(sumNumerator, commonDenominator);
         result.simplify();
+        return result;
+    }
 
+    /**
+     * Вычитание дробей
+     * @param otherFraction - другая дробь
+     * @return Fraction - результат вычитания
+     */
+    public Fraction subtract(Fraction otherFraction) {
+        int commonDenominator = this.denominator * otherFraction.denominator;
+        int diffNumerator = (this.numerator * otherFraction.denominator) - (otherFraction.numerator * this.denominator);
+        Fraction result = new Fraction(diffNumerator, commonDenominator);
+        result.simplify();
         return result;
     }
 
