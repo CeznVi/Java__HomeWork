@@ -35,6 +35,7 @@
             <td>
                 <a th:href="@{/shops/{id}(id=${shop.id})}">Детально</a>
                 <a th:href="@{/shops/{id}/edit(id=${shop.id})}">Изменить</a>
+                <a th:href="@{/shops/{id}/delete(id=${shop.id})}" onclick="return confirm('Вы действительно хотите удалить данный магазин?')">Удалить</a>
             </td>
         </tr>
     </tbody>

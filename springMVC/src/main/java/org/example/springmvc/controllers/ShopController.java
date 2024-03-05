@@ -56,4 +56,10 @@ public class ShopController {
         }
         return "redirect:/shops";
     }
+
+    @GetMapping("/shops/{id}/delete")
+    public String deleteShop(@PathVariable("id") Long id) {
+        shopService.deleteShopById(id);
+        return "redirect:/shops";
+    }
 }
