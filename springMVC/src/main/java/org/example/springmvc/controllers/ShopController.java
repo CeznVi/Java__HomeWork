@@ -62,4 +62,5 @@ public class ShopController {
         shopService.deleteShopById(id);
         return "redirect:/shops";
     }
+
 }
