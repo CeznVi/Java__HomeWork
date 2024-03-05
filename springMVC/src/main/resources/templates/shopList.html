@@ -1,0 +1,55 @@
+<head>
+    <title>Список магазинов</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .add-shop-form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1>Список магазинов</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Название</th>
+        <th>Адрес</th>
+        <th>Детальная информация</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each="shop : ${shops}" >
+            <td th:text="${shop.name}"></td>
+            <td th:text="${shop.address}"></td>
+            <td><a th:href="@{/shops/{id}(id=${shop.id})}">Детально</a></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<div class="add-shop-form">
+    <h2>Добавить магазин</h2>
+    <form th:action="@{/shops}" method="post">
+        <input type="text" name="name" placeholder="Название" required><br>
+        <input type="text" name="address" placeholder="Адрес" required><br>
+        <input type="text" name="phone" placeholder="Телефон" required><br>
+        <input type="text" name="email" placeholder="Ел.почта"><br>
+        <input type="text" name="website" placeholder="Веб сайт"><br>
+        <input type="text" name="category" placeholder="Категория" required><br>
+        <input type="text" name="description" placeholder="Описание"><br>
+        <button type="submit">Добавить</button>
+    </form>
+</div>
+</body>
+</html>
