@@ -34,5 +34,26 @@ public class ShopController {
         return "redirect:/shops"; // Перенаправляем на страницу списка магазинов
     }
 
+    @GetMapping("/shops/{id}/edit")
+    public String showEditForm(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("shop", shopService.getShopById(id));
+        return "editShop";
+    }
 
+    @PostMapping("/shops/{id}/edit")
+    public String editShop(@PathVariable("id") Long id, @ModelAttribute Shop editedShop) {
+        Shop shopToUpdate = shopService.getShopById(id);
+        if (shopToUpdate != null) {
+            shopToUpdate.setName(editedShop.getName());
+            shopToUpdate.setAddress(editedShop.getAddress());
+            shopToUpdate.setPhone(editedShop.getPhone());
+            shopToUpdate.setEmail(editedShop.getEmail());
+            shopToUpdate.setWebsite(editedShop.getWebsite());
+            shopToUpdate.setCategory(editedShop.getCategory());
+            shopToUpdate.setDescription(editedShop.getDescription());
+
+            shopService.saveShop(shopToUpdate);
+        }
+        return "redirect:/shops";
+    }
 }
