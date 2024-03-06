@@ -29,5 +29,13 @@ public class ShopService {
     }
 
 
+    public List<Shop> findBySearchQueryAndCategoryAndAddress(String query, String category, String address) {
 
+
+        return shopRepository.findBySearchQueryAndCategoryAndAddress(query,category,address);
+    }
+
+    public List<Shop> findAll() {
+        return shopRepository.findAll();
+    }
 }

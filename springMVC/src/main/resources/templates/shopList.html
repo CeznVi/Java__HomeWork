@@ -19,11 +19,21 @@
     </style>
 </head>
 <body>
+<form th:action="@{/search}" method="get">
+    <input type="text" name="query" placeholder="Название">
+    <input type="text" name="category" placeholder="Категория">
+    <input type="text" name="address" placeholder="Адрес">
+    <button type="submit">Поиск</button>
+</form>
+
+
+
 <h1>Список магазинов</h1>
 <table>
     <thead>
     <tr>
         <th>Название</th>
+        <th>Категория</th>
         <th>Адрес</th>
         <th>Действия</th>
     </tr>
@@ -31,6 +41,7 @@
     <tbody>
         <tr th:each="shop : ${shops}" >
             <td th:text="${shop.name}"></td>
+            <td th:text="${shop.category}"></td>
             <td th:text="${shop.address}"></td>
             <td>
                 <a th:href="@{/shops/{id}(id=${shop.id})}">Детально</a>
@@ -55,5 +66,7 @@
         <button type="submit">Добавить</button>
     </form>
 </div>
+
+
 </body>
 </html>

@@ -5,10 +5,9 @@ import org.example.springmvc.service.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 public class ShopController {
@@ -62,5 +61,25 @@ public class ShopController {
         shopService.deleteShopById(id);
         return "redirect:/shops";
     }
+
+    @GetMapping("/search")
+    public String searchShops(@RequestParam(value = "query", required = false) String query,
+                              @RequestParam(value = "category", required = false) String category,
+                              @RequestParam(value = "address", required = false) String address,
+                              Model model) {
+        List<Shop> foundShops;
+        if (query != null && !query.isEmpty()) {
+            foundShops = shopService.findBySearchQueryAndCategoryAndAddress(query.toLowerCase(), category.toLowerCase(), address.toLowerCase());
+        } else {
+            foundShops = shopService.findAll();
+        }
+        model.addAttribute("shops", foundShops);
+        return "shopList";
+    }
+
+
+
+
+
 
 }
