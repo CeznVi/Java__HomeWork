@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Редактировать магазин</title>
+</head>
+<body>
+<h1>Редактировать магазин</h1>
+<form th:action="@{/shops/{id}/edit(id=${shop.id})}" method="post">
+    <input type="text" name="name" placeholder="Name" required th:value="${shop.name}"><br>
+    <input type="text" name="address" placeholder="Адрес" required th:value="${shop.address}"><br>
+    <input type="text" name="phone" placeholder="Телефон" required th:value="${shop.phone}"><br>
+    <input type="text" name="email" placeholder="Ел.почта" th:value="${shop.email}"><br>
+    <input type="text" name="website" placeholder="Веб сайт" th:value="${shop.website}"><br>
+    <input type="text" name="category" placeholder="Категория" required th:value="${shop.category}"><br>
+    <input type="text" name="description" placeholder="Описание" required th:value="${shop.description}"><br>
+
+
+    <button type="submit">Сохранить изменения</button>
+</form>
+</body>
+</html>
